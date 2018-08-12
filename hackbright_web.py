@@ -13,7 +13,10 @@ def student_add():
 	last_name = request.form.get('last')
 	github = request.form.get('github')
 	hackbright.make_new_student(first_name, last_name, github)
-	return render_template("student_add.html")
+	if request.method == "GET":
+		return render_template ("student_add.html")
+	else: 
+		return render_template("added_student.html", github=github)
 	# return redirect("/student")
 	
 @app.route("/student-search")

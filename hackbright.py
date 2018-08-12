@@ -32,7 +32,7 @@ def get_student_by_github(github):
     db_cursor = db.session.execute(QUERY, {'github': github})
 
     row = db_cursor.fetchone()
-
+    
     print(f"Student: {row[0]} {row[1]}\nGitHub account: {row[2]}")
 
     return row
